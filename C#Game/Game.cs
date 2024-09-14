@@ -7,20 +7,22 @@ using mob;
 using bullet;
 public class Game
 {
-    private Ship player;
-    private HashSet<Keys> pressedKeys = new HashSet<Keys>();
-    private HashSet<Enemy> enemies = new HashSet<Enemy>();
-    private HashSet<Bullet> bullets = new HashSet<Bullet>();
-    private bool playerDead = false;
-    private bool displayCredits = false;
+    private Ship player; // The player object
+    private HashSet<Keys> pressedKeys = new HashSet<Keys>(); // The keys that are currently being pressed
+    private HashSet<Enemy> enemies = new HashSet<Enemy>(); // The enemies that are currently in the game
+    private HashSet<Bullet> bullets = new HashSet<Bullet>(); // Set of bullets currently live
+    private bool playerDead = false; // Flag for if the player is dead
+    private bool displayCredits = false; //Flag for whether to display the credits
     public void Setup()
     {
+        // Creates the player object, and sets it to the center of the window
         Image pImg = Image.FromFile("player.png"); 
         player = new Ship(new Point(Window.width/2, Window.height/2), 5, pImg, 3);
     }
 
     public void Update(float dt)
     {
+        //If the player is dead, stop updates
         if (playerDead)
         {
             return;
@@ -129,6 +131,7 @@ public class Game
 
     public void Draw(Graphics g)
     {
+        // sets the background to black
         g.Clear(Color.Black);
         // centers the image on the player
         g.DrawImage(player.playerImage, playerCenter());
@@ -138,6 +141,7 @@ public class Game
             DrawCredits(g);
         }
 
+        // draws: the enemies, bullets, and game over text
         foreach (var enemy in enemies)
         {
             g.DrawImage(enemy.enemyImage, enemy.position);
@@ -156,6 +160,7 @@ public class Game
 
     public void DrawCredits(Graphics g)
     {
+        // draws the credits box
         string name = "James Simbolon";
         string classYear = "2025";
         string gameTitle = "Space Shooter?";
@@ -172,11 +177,13 @@ public class Game
 
     public Point playerCenter()
     {
+        // returns the center of the player. 
         return new Point(player.position.X - player.playerImage.Width / 2, player.position.Y - player.playerImage.Height / 2);
     }
 
     public void MouseClick(MouseEventArgs mouse)
     {
+        //On click, shoot a bullet at the mouse location.
         if (mouse.Button == MouseButtons.Left)
         {
             Shoot(mouse.Location);
@@ -185,6 +192,7 @@ public class Game
 
     public void Shoot(Point target)
     {
+        // Handles shooting a bullet at the target location. 
         if (playerDead)
         {
             return;
@@ -196,6 +204,7 @@ public class Game
 
     public void KeyDown(KeyEventArgs key)
     {
+        //Adds active keys to the set of pressed keys. And if the plus key is pressed, it toggles the credits display.
         pressedKeys.Add(key.KeyCode);
 
         if (key.KeyCode == Keys.Oemplus)
@@ -205,6 +214,7 @@ public class Game
     } 
     public void KeyUp(KeyEventArgs key)
     {
+        //Removes inactive keys from the set. 
         pressedKeys.Remove(key.KeyCode);
 
     }
