@@ -50,12 +50,14 @@ public class Window : System.Windows.Forms.Form
         this.Resize += new System.EventHandler(this.ResizeCb);
         this.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawCb);
         this.KeyDown += new KeyEventHandler(KeyDownCb);
+        // Added Keyup
+        this.KeyUp += new KeyEventHandler(KeyUpCb);
         this.MouseClick += new MouseEventHandler(MouseClickCb);
 
         _game.Setup();
         _lastTime = DateTime.Now;
         _timer.Tick += TickCb;
-        _timer.Interval = 100;
+        _timer.Interval = 25;
         _timer.Start();
     }
 
@@ -84,6 +86,11 @@ public class Window : System.Windows.Forms.Form
     private void KeyDownCb(object sender, KeyEventArgs e)
     {
         _game.KeyDown(e);
+    }
+
+    private void KeyUpCb(object sender, KeyEventArgs e)
+    {
+        _game.KeyUp(e);
     }
 
     private void MouseClickCb(object sender, MouseEventArgs e)
