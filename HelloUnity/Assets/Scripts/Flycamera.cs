@@ -11,13 +11,9 @@ public class FlyCamera : MonoBehaviour
 
     private float rotationX = 0.0f;
     private float rotationY = 0.0f;
-    private Rigidbody playerRigidbody;
-    private Animator playerAnimator;
 
     void Start()
     {
-        playerRigidbody = player.GetComponent<Rigidbody>();
-        playerAnimator = player.GetComponent<Animator>();
     }
 
     void Update()
@@ -29,30 +25,6 @@ public class FlyCamera : MonoBehaviour
 
         transform.localRotation = Quaternion.AngleAxis(rotationX, Vector3.up);
         transform.localRotation *= Quaternion.AngleAxis(rotationY, Vector3.left);
-
-        // WASD to move the player character
-        Vector3 moveDirection = Vector3.zero;
-        if (Input.GetKey(KeyCode.W))
-        {
-            moveDirection += player.forward;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            moveDirection -= player.forward;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            moveDirection -= player.right;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            moveDirection += player.right;
-        }
-
-        // Apply movement
-        playerRigidbody.MovePosition(player.position + moveDirection * moveSpeed * Time.deltaTime);
-        playerAnimator.SetBool("isWalking", moveDirection != Vector3.zero);
-        Debug.Log(playerAnimator.GetBool("isWalking"));
 
         transform.position = Vector3.Lerp(transform.position, player.position + cameraOffset, Time.deltaTime * moveSpeed);
     }
