@@ -42,5 +42,6 @@ Rio Character: https://assetstore.unity.com/packages/3d/characters/humanoids/low
 Starter Assets: 3rd Person: https://assetstore.unity.com/packages/essentials/starter-assets-thirdperson-updates-in-new-charactercontroller-pa-196526
 
 Assignment 5, Spring into Action
-![Screenshot 2024-10-05 225433](https://github.com/user-attachments/assets/e4cefefd-7fc8-45d1-9532-ad00d4aab660)
-![Screenshot 2024-10-05 224913](https://github.com/user-attachments/assets/cb126adc-50c7-4b08-bbd5-9abf96030ad1)
+https://github.com/user-attachments/assets/de315a72-4e5a-4405-a36a-37ca88c7ec90
+https://github.com/user-attachments/assets/9241889e-345e-48b5-9811-f95370878a1f
+
