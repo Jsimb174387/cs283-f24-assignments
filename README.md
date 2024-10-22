@@ -47,3 +47,25 @@ https://github.com/user-attachments/assets/de315a72-4e5a-4405-a36a-37ca88c7ec90
 Spring:
 https://github.com/user-attachments/assets/9241889e-345e-48b5-9811-f95370878a1f
 
+A6:
+Sorry I didn't realize it was due when it was. I didn't really remember when the due date was during break and when I checked, the banner at the top said the next assignment (7)  was due on the 25th so I thought I was fine, when in fact I was not. That is my fault I should have looked more carefully. 
+
+
+
+https://github.com/user-attachments/assets/caf19697-8081-4272-9119-637cad642b26
+
+
+
+https://github.com/user-attachments/assets/870a3622-e6f3-4334-820b-c583884dafbc
+
+
+
+https://github.com/user-attachments/assets/2603b603-02d7-4f27-83c1-5d47753ae57c
+
+
+
+https://github.com/user-attachments/assets/a81c07d2-3612-4c37-886d-09df11c24ecc
+
+
+
+
