@@ -24,15 +24,15 @@ public class TwoLinkController : MonoBehaviour
             Debug.LogError("Missing a transform");
             return;
         }
+        
+        float r = Vector3.Distance(target.position, baseJoint.position);
+        float l1 = Vector3.Distance(middleJoint.position, baseJoint.position);
+        float l2 = Vector3.Distance(endEffector.position, middleJoint.position);
 
         if (r > l1 + l2)
         {
             Debug.LogError("Target is too far");
         }
-        
-        float r = Vector3.Distance(target.position, baseJoint.position);
-        float l1 = Vector3.Distance(middleJoint.position, baseJoint.position);
-        float l2 = Vector3.Distance(endEffector.position, middleJoint.position);
 
         // r2 = l1^2 + l2^2 - 2(l1)(l2)cos(theta2)
         // below is rearranged, solving for cos(theta2)
