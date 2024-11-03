@@ -71,3 +71,14 @@ https://github.com/user-attachments/assets/a81c07d2-3612-4c37-886d-09df11c24ecc
 A07: Motion Control
 
 https://github.com/user-attachments/assets/a677c87b-b8f7-4f25-bf36-0706bc00aa52
+
+A08:
+
+Credit to: Mirza Beig's Explosion Assets:
+https://assetstore.unity.com/publishers/7271
+
+
+https://github.com/user-attachments/assets/77708982-8ba2-427d-9218-577a8a95198f
+
+
+
