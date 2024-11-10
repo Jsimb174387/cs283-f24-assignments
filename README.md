@@ -80,5 +80,12 @@ https://assetstore.unity.com/publishers/7271
 
 https://github.com/user-attachments/assets/77708982-8ba2-427d-9218-577a8a95198f
 
+A09:
+Cowboy: https://assetstore.unity.com/packages/3d/characters/humanoids/lowpoly-cowboy-rio-v1-1-288965
+
+https://github.com/user-attachments/assets/3c849b78-491e-4e49-80ee-c0bca8ec4ca8
+
+
+
 
 
