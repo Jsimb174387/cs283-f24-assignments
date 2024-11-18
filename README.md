@@ -85,7 +85,15 @@ Cowboy: https://assetstore.unity.com/packages/3d/characters/humanoids/lowpoly-co
 
 https://github.com/user-attachments/assets/3c849b78-491e-4e49-80ee-c0bca8ec4ca8
 
+A10:
+I wasted too much time trying to get animations to blend together without the model warping into the floor :)))))))) and I gave up :))))))))
 
+https://github.com/user-attachments/assets/0a0a3d19-2db0-41b0-ab8e-7dc3e2e6f60d
+
+Models used:
+https://assetstore.unity.com/packages/3d/props/weapons/free-shield-89954
+https://assetstore.unity.com/packages/3d/props/weapons/lowpoly-medieval-weapon-pack-291374
+https://assetstore.unity.com/packages/3d/animations/rpg-animations-pack-free-288783
 
 
 
