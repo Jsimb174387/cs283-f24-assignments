@@ -14,18 +14,22 @@ public class FlyCamera : MonoBehaviour
 
     void Start()
     {
+        Vector3 angles = transform.eulerAngles;
+        rotationX = angles.y;
+        rotationY = angles.x;
     }
 
     void Update()
     {
         rotationX += Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
-        rotationY += Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
+        rotationY -= Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime; 
         //so that camera doesn't flip
-        rotationY = Mathf.Clamp(rotationY, -90, 90);
+        rotationY = Mathf.Clamp(rotationY, -45, 45);
 
-        transform.localRotation = Quaternion.AngleAxis(rotationX, Vector3.up);
-        transform.localRotation *= Quaternion.AngleAxis(rotationY, Vector3.left);
+        Quaternion rotation = Quaternion.Euler(rotationY, rotationX, 0);
+        Vector3 position = player.position + rotation * cameraOffset;
 
-        transform.position = Vector3.Lerp(transform.position, player.position + cameraOffset, Time.deltaTime * moveSpeed);
+        transform.position = Vector3.Lerp(transform.position, position, Time.deltaTime * moveSpeed);
+        transform.LookAt(player.position);
     }
 }

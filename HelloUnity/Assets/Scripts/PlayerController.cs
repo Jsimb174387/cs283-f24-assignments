@@ -9,7 +9,7 @@ public class PLayerController : MonoBehaviour
     private Animator playerAnimator;
 
     public float moveSpeed = 20;
-    public float turnSpeed = 60;
+    public float turnSpeed = 180;
 
     // Start is called before the first frame update
     void Start()

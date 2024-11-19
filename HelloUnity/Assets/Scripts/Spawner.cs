@@ -21,7 +21,6 @@ public class Spawner : MonoBehaviour
     {
         if (Time.time > nextSpawn && count < maxItems)
         {
-            Debug.Log("Spawning item " + count);
             SpawnItem();
             nextSpawn = Time.time + spawnRate;
         }
@@ -35,7 +34,6 @@ public class Spawner : MonoBehaviour
             count++;
             Vector3 spawnPosition = transform.position + new Vector3(Random.Range(-range, range), 0, Random.Range(-range, range));
             Instantiate(itemPrefab, spawnPosition, Quaternion.identity);
-            Debug.Log("Spawned item at " + spawnPosition);
         }
     }
 }   

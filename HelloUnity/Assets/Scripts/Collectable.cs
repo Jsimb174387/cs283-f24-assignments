@@ -7,7 +7,6 @@ public class Collectable : MonoBehaviour
     public GameObject collectionEffectPrefab; 
     public void OnCollected()
     {
-        Debug.Log("Collected");
         if (collectionEffectPrefab != null)
         {
             // Instantiate the prefab at the position of the collectable object

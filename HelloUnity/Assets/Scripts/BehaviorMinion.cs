@@ -6,45 +6,60 @@ using BTAI;
 public class BehaviorMinion : MonoBehaviour
 {
     [Header("Enemy Stats")] 
-    [SerializeField]
-    private float accel;
-    [SerializeField]
-    private float speed;
-    [SerializeField]
-    private float attackRange;
-    [SerializeField]
-    private float attackRate;
-    private float attackTimer;
-    [SerializeField]
-    private float wanderRate;
+    [SerializeField] private float health = 1;
+    [SerializeField] private float attackRange = 1;
+    [SerializeField] private float attackRate = 1;
+    private float attackTimer = 0;
+    [SerializeField] private float wanderRate = 1;
     private float timer;
-    private float walkAnimThresh;
-    private float followRange;
+    private float walkAnimThresh = 0.1f;
+    private float followRange = 1;
 
     [Header("Enviroment Stats")]
-    [SerializeField]
-    private float wanderRadius;
-    [SerializeField]
-    private Transform wanderStart;
-    [SerializeField]
-    private Transform playerSafe;
-    [SerializeField]
-    private Transform player;
-    [SerializeField]
-    private UnityEngine.AI.NavMeshAgent agent;
-    [SerializeField]
-    private EnemyMotionController motionController;
+    [SerializeField] private float wanderRadius = 1;
+    [SerializeField] private Transform wanderStart = null;
+    [SerializeField] private Transform playerSafe = null;
+    [SerializeField] protected Transform player = null;
+    [SerializeField] private UnityEngine.AI.NavMeshAgent agent;
+    [SerializeField] private EnemyMotionController motionController;
 
     private Root btRoot = BT.Root();
     
     void Start()
     {
+        GameObject playerObject = GameObject.Find("Player");
+        if (playerObject != null)
+        {
+            player = playerObject.transform;
+        } else 
+        {
+            Debug.Log("Cannot find player object");
+        }
+        GameObject playerSafeObject = GameObject.Find("PlayerSafe");
+        if (playerSafeObject != null)
+        {
+            playerSafe = playerSafeObject.transform;
+        } else 
+        {
+            Debug.Log("Cannot find player safe object");
+        }
+        GameObject wanderStartObject = GameObject.Find("WanderStart");
+        if (wanderStartObject != null)
+        {
+            wanderStart = wanderStartObject.transform;
+        } else 
+        {
+            Debug.Log("Cannot find wander start object");
+        }
+
+
         /* basic RPG BT afaik
         attack if enemy (player) is in range
         if not in range, follow the player if they haven't reached the safe zone
         if they have reached the safe zone, flee (return) to start zone
         else if already at the start zone, wander around
         */
+
         BTNode attack = BT.RunCoroutine(Attack);
         BTNode follow = BT.RunCoroutine(Follow);
         BTNode flee = BT.RunCoroutine(Flee);
@@ -149,5 +164,14 @@ public class BehaviorMinion : MonoBehaviour
         UnityEngine.AI.NavMeshHit hit;
         UnityEngine.AI.NavMesh.SamplePosition(randomDirection, out hit, distance, UnityEngine.AI.NavMesh.AllAreas);
         return hit.position;
+    }
+
+    public void takeDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

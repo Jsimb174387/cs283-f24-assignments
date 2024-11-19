@@ -56,8 +56,12 @@ public class PlayerMotionController : MonoBehaviour
         player.Rotate(Vector3.up, turn);
     }
 
+    public void OnDamage()
+    {
+        playerAnimator.SetTrigger("Damage");
+    }
+
     public void OnFootstep()
     {
-        Debug.Log("Footstep event");
     }
 }
