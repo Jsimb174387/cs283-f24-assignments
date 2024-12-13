@@ -1,25 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Room : MonoBehaviour
 {
-    public int x;
-    public int y;
-    public int width;
-    public int height;
+    [SerializeField] public int Width;
+    public int Height;
+    public Room nextRoom;
 
-    public Room(int x, int y, int width, int height)
+    void Awake()
     {
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
+        Renderer renderer = GetComponent<Renderer>();
+        if (renderer != null)
+        {
+            Width = (int)renderer.bounds.size.x;
+            Height = (int)renderer.bounds.size.y;
+        }
     }
 
     public bool Overlaps(Room other)
     {
-        return (x < other.x + other.width && x + width > other.x && y < other.y + other.height && y + height > other.y);
+        return transform.position.x < other.transform.position.x + other.Width &&
+               transform.position.x + Width > other.transform.position.x;
     }
 
+    public void SetActive(bool isActive)
+    {
+        gameObject.SetActive(isActive);
+    }
 }
+

@@ -6,16 +6,16 @@ public class DungeonGen : MonoBehaviour
 {
     public int dungeonWidth = 100;
     public int dungeonHeight = 100;
-    public int maxRooms = 10;
-    public int minRoomSize = 3;
-    public int maxRoomSize = 15;
+    public int roomCount = 10;
 
-    private list<Room> rooms = new list<Room>();
+    private List<Room> rooms = new List<Room>();
+    [SerializeField] private List<GameObject> roomPrefabs = new List<GameObject>();
+    [SerializeField] private GameObject startingRoomPrefab;
 
     // Start is called before the first frame update
     void Start()
     {
-        GenDungeon();
+        Generate();
     }
 
     // Update is called once per frame
@@ -24,36 +24,49 @@ public class DungeonGen : MonoBehaviour
         
     }
 
-    void GenerateDungeon()
+    void Generate()
     {
+        int currentX = 0;
+
+        // Instantiate and place the starting room
+        GameObject startingRoomObject = Instantiate(startingRoomPrefab, new Vector3(currentX, 0, 0), Quaternion.identity);
+        Room startingRoom = startingRoomObject.GetComponent<Room>();
+        if (startingRoom != null)
+        {
+            currentX += startingRoom.Width;
+            rooms.Add(startingRoom);
+        }
+
+        // Instantiate and place the other rooms
         for (int i = 0; i < roomCount; i++)
         {
-            int width = Random.Range(minRoomSize, maxRoomSize);
-            int height = Random.Range(minRoomSize, maxRoomSize);
-            int x = Random.Range(0, dungeonWidth - width - 1);
-            int y = Random.Range(0, dungeonHeight - height - 1);
+            GameObject roomPrefab = roomPrefabs[Random.Range(0, roomPrefabs.Count)];
+            GameObject roomObject = Instantiate(roomPrefab, new Vector3(currentX, 0, 0), Quaternion.identity);
+            Room newRoom = roomObject.GetComponent<Room>();
 
-            roomCount newRoom = new Room(x, y, width, height);
-
-            bool overlaps = false;
-            foreach (Room gRoom in rooms)
+            if (newRoom != null)
             {
-                if (newRoom.Overlaps(gRoom))
+                bool overlaps = false;
+                foreach (Room gRoom in rooms)
                 {
-                    overlaps = true;
-                    break;
+                    if (newRoom.Overlaps(gRoom))
+                    {
+                        overlaps = true;
+                        break;
+                    }
+                }
+
+                if (!overlaps)
+                {
+                    rooms.Add(newRoom);
+                    currentX += newRoom.Width; // Update currentX after adding the room
+                }
+                else
+                {
+                    // Destroy the room if it overlaps
+                    Destroy(roomObject);
                 }
             }
-
-            if (!overlaps)
-            {
-                rooms.Add(newRoom);
-            }
         }
-    }
-
-    void ConnectRooms()
-    {
-        
     }
 }
