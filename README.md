@@ -15,9 +15,6 @@ How to Build: File -> Build Settings -> Build
 
 https://github.com/user-attachments/assets/415da399-1a19-4a3b-ae28-3566a9ba76d2
 
-https://github.com/user-attachments/assets/a76e277c-1af8-4968-b40f-76a09ac31868
-
-
 ![Shop](https://github.com/user-attachments/assets/859fd285-4f27-4c5d-b517-5b06d562f509)
 
 Features:
