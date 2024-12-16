@@ -15,19 +15,21 @@ public class BehaviorMinion : MonoBehaviour
     private float walkAnimThresh = 0.1f;
     private float followRange = 1;
 
+    public GameObject deathPrefab;
+    public GameObject deathEffect;
+
     [Header("Enviroment Stats")]
     [SerializeField] private float wanderRadius = 1;
     [SerializeField] private Transform wanderStart = null;
-    [SerializeField] private Transform playerSafe = null;
-    [SerializeField] protected Transform player = null;
+    public Transform playerSafe = null;
+    public Transform player = null;
     [SerializeField] private UnityEngine.AI.NavMeshAgent agent;
     [SerializeField] private EnemyMotionController motionController;
 
     private Root btRoot = BT.Root();
-    
     void Start()
     {
-        GameObject playerObject = GameObject.Find("Player");
+        GameObject playerObject = GameObject.FindWithTag("Player");
         if (playerObject != null)
         {
             player = playerObject.transform;
@@ -77,13 +79,16 @@ public class BehaviorMinion : MonoBehaviour
 
     void Update()
     {
-        if (agent.velocity.magnitude > walkAnimThresh)
+        if (agent != null)
         {
-            motionController.walk();
-        }
-        else
-        {
-            motionController.stopWalk();
+            if (agent.velocity.magnitude > walkAnimThresh)
+            {
+                motionController.walk();
+            }
+            else
+            {
+                motionController.stopWalk();
+            }
         }
 
         btRoot.Tick();
@@ -166,12 +171,25 @@ public class BehaviorMinion : MonoBehaviour
         return hit.position;
     }
 
-    public void takeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
         if (health <= 0)
         {
+            SpawnDeathPrefab();
             Destroy(gameObject);
+        }
+    }
+
+    private void SpawnDeathPrefab()
+    {
+        if (deathPrefab != null)
+        {
+            Vector3 deathPosition = transform.position;
+            deathPosition.y += 1;
+            GameObject deathDrop = Instantiate(deathPrefab, deathPosition, transform.rotation);
+            deathPosition.y += 1;
+            GameObject deathEf = Instantiate(deathEffect, deathPosition, transform.rotation);
         }
     }
 }

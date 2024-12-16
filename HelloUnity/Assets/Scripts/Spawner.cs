@@ -11,6 +11,7 @@ public class Spawner : MonoBehaviour
     public float nextSpawn;
     public int count = 0;
     // Start is called before the first frame update
+    public GameObject deathPrefab;
     void Start()
     {
         nextSpawn = Time.time + spawnRate;
@@ -33,7 +34,13 @@ public class Spawner : MonoBehaviour
         {
             count++;
             Vector3 spawnPosition = transform.position + new Vector3(Random.Range(-range, range), 0, Random.Range(-range, range));
-            Instantiate(itemPrefab, spawnPosition, Quaternion.identity);
+            GameObject item = Instantiate(itemPrefab, spawnPosition, Quaternion.identity);
+
+            BehaviorMinion behaviorMinion = item.GetComponent<BehaviorMinion>();
+            if (behaviorMinion != null)
+            {
+                behaviorMinion.deathPrefab = deathPrefab;
+            }
         }
     }
 }   

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CowboyMotion : EnemyMotionController
 {
-    private float blockDist = 14;
+    //private float blockDist = 14;
     [SerializeField] private Transform player;
     public void Update()
     {
