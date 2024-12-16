@@ -1,6 +1,35 @@
 # cs283-f24-assignments
 Assignment framework for CS283 Game Programming
 
+Project: 
+
+
+
+![STT](https://github.com/user-attachments/assets/e84f3c34-7159-4012-bda4-2766279b39a5)
+
+Download the Executable at: https://drive.google.com/drive/folders/1kpkMqEFjtZicXRPje3ipv6FzsiWuMk3w?usp=drive_link
+
+Play by shooting Enemies with left click. Progress through rooms by holding E on the valve. Buy items at the shop with E. Kill Enemies and kill the boss, who drops the tree, and then reclaim the tree.
+
+How to Build: File -> Build Settings -> Build
+
+https://github.com/user-attachments/assets/415da399-1a19-4a3b-ae28-3566a9ba76d2
+![Shop](https://github.com/user-attachments/assets/859fd285-4f27-4c5d-b517-5b06d562f509)
+
+Features:
+Basic Procedurally generated Dungeon from premade levels in Prefabs (DungeonGen)
+Functioning Shop (Shop, Collection Game)
+Load Zones (Room, DungeonGen)
+
+New Credits:
+[https://assetstore.unity.com/publishers/100325](https://assetstore.unity.com/packages/3d/props/weapons/free-machine-turret-302056)
+https://assetstore.unity.com/packages/3d/props/potions-coin-and-box-of-pandora-pack-71778
+https://assetstore.unity.com/packages/3d/props/guns/stylized-m4-assault-rifle-with-scope-complete-kit-with-gunshot-v-178197
+https://assetstore.unity.com/packages/tools/physics/interactive-physical-door-pack-163249
+
+
+
+
 https://github.com/user-attachments/assets/6e1c7bba-a569-40ea-9610-9b1b3a5f1907
 
 Instructions:
