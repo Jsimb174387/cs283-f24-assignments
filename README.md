@@ -78,9 +78,6 @@ Spring:
 https://github.com/user-attachments/assets/9241889e-345e-48b5-9811-f95370878a1f
 
 A6:
-Sorry I didn't realize it was due when it was. I didn't really remember when the due date was during break and when I checked, the banner at the top said the next assignment (7)  was due on the 25th so I thought I was fine, when in fact I was not. That is my fault I should have looked more carefully. 
-
-
 
 https://github.com/user-attachments/assets/caf19697-8081-4272-9119-637cad642b26
 
@@ -116,8 +113,6 @@ Cowboy: https://assetstore.unity.com/packages/3d/characters/humanoids/lowpoly-co
 https://github.com/user-attachments/assets/3c849b78-491e-4e49-80ee-c0bca8ec4ca8
 
 A10:
-I wasted too much time trying to get animations to blend together without the model warping into the floor :)))))))) and I gave up :))))))))
-
 https://github.com/user-attachments/assets/0a0a3d19-2db0-41b0-ab8e-7dc3e2e6f60d
 
 Models used:
